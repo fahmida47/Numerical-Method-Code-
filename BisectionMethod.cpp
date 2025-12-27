@@ -1,7 +1,7 @@
-                                                        //------------------------------BISECTION METHOD-------------------------------------------//
+            //------------------------------BISECTION METHOD-------------------------------------------//
 
 //---------With Apply Search Bracket Method--------//
-/*#include<bits/stdc++.h>
+#include<bits/stdc++.h>
 #include<math.h>
 using namespace std;
 
@@ -53,10 +53,11 @@ int main()
     while(error>=0.001);//Error=abs(x-prev)
     cout<<"Root: \n"<<x;
     return 0;
-}*/
+}
 
 //----Without Apply Search Bracket Method---//
-/*#include<bits/stdc++.h>
+  
+#include<bits/stdc++.h>
 #include<math.h>
 using namespace std;
 
@@ -102,7 +103,7 @@ int main()
 }
     cout<<"Root: \n"<<x;
     return 0;
-}*/
+}
 
 //-----------------ONLINE QUESTION SOLVE------------------//
 
@@ -200,7 +201,7 @@ int main()
     cout << "Final Root (approx): " << toDegree(x0) << " degree" << endl;
 
     return 0;
-}*/
+}
 
 
 ///QUESTION-02
@@ -258,7 +259,8 @@ int main()
     }
     cout << "\nFinal Root (approx): " << x0 << endl;
     return 0;
-}*/
+}
+
 
 
 
