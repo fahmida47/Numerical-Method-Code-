@@ -1,2 +1,2 @@
-# Numerical-Method-Code-
+# Numerical-Method[Code]
 
