@@ -1,6 +1,6 @@
 //------------------------------FALSE POSITION METHOD-------------------------------------------//
 
-/*#include<bits/stdc++.h>
+#include<bits/stdc++.h>
 #include<math.h>
 using namespace std;
 
@@ -47,7 +47,7 @@ int main()
     }
     cout<<"Root: \n"<<x;
     return 0;
-}*/
+}
 
 
 
@@ -78,7 +78,7 @@ Key columns include:Iter: Iteration number (1 through 17).a / b:
         The root converted to degrees.Abs Error: The absolute error or interval width progression.
 Final Results from Sample:Final Root (approx): 0.450542 radian} and Final Root (approx): 25.814165 degree*/
 
-/*#include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 //Given that
@@ -147,7 +147,7 @@ int main()
      }
     cout<<"\nFinal Root:"<<x0<<" radian"<<endl;
     cout<<"Final Root"<<Degree(x0)<<" degree"<<endl;
-}*/
+}
 
 
 ///QUESTION-02
@@ -204,7 +204,7 @@ int main()
      }
      cout<<"Final Root(approx): "<<x0<<endl;
      return 0;
-}*/
+}
 
 
 ///QUESTION-03
@@ -269,6 +269,7 @@ int main()
 
     return 0;
 }
+
 
 
 
