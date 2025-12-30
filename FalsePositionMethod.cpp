@@ -207,69 +207,6 @@ int main()
 }
 
 
-///QUESTION-03
-
-#include<bits/stdc++.h>
-#include<math.h>
-using namespace std;
-
-// Given function
-double f(double x)
-{
-    return (x*x*x - 0.165*x*x + 3.993e-4);
-}
-
-int main()
-{
-    // -------- INTERVAL SEARCH (BRACKETING) -------- //
-    double a = 0.165;
-    double b = -0.165;
-
-    if (f(a) * f(b) > 0)
-    {
-        cout << "Invalid interval! No root inside.\n";
-        return 0;
-    }
-
-    cout << "Initial Interval: [" << a << ", " << b << "]\n\n";
-
-    // -------- BISECTION METHOD -------- //
-    int i = 0;
-    double x, error, prev;
-
-    prev = a;
-
-    cout << fixed << setprecision(6);
-    cout << "Iter\t a\t\t b\t\t x\t\t Error\n";
-
-    do
-    {
-        i++;
-        x=a-((b-a)*f(a))/(f(b)-f(a));
-
-        if (i == 1)
-            cout << i << "\t " << a << "\t " << b << "\t " << x << "\t " << "Not defined\n";
-        else
-        {
-            error = fabs(x - prev);
-            cout << i << "\t " << a << "\t " << b << "\t " << x << "\t " << error << "\n";
-        }
-
-        if (f(a) * f(x) < 0)
-            b = x;
-        else
-            a = x;
-
-        prev = x;
-
-    } while (i == 1 || error >= 0.001);
-
-    cout << "\nRoot ≈ " << x << endl;
-    cout << "Total Iterations = " << i << endl;
-
-    return 0;
-}
-
 
 
 
