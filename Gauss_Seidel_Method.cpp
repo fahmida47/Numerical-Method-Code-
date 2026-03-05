@@ -1,6 +1,13 @@
-///Topic-01
-//Basic Code
-/*#include <iostream>
+Topics
+1. Basic Code
+2. Add Iteration Part
+3. Add error and find Sum of other 
+
+//---------------------------START--------------------------//
+
+Topic-01
+Basic Code
+#include <iostream>
 #include <cmath>
 using namespace std;
 
@@ -75,11 +82,11 @@ int main()
     }
 
     return 0;
-}*/
+}
 
-///Topic-02
-//Add Iteration
-/*#include <iostream>
+Topic-02
+Add Iteration
+#include <iostream>
 #include <cmath>
 #include <iomanip>
 using namespace std;
@@ -162,11 +169,11 @@ int main()
     }
 
     return 0;
-}*/
+}
 
 
-///Topic-03
-//Add Error
+Topic-03
+Add Error and  find Sum of other Coefficient
 #include <iostream>
 #include <cmath>
 #include <iomanip>
