@@ -1,6 +1,6 @@
-///Topic-01
-//Basic Code
-/*#include <iostream>
+Topic-01
+Basic Code
+#include <iostream>
 #include <iomanip>  // for setprecision
 using namespace std;
 
@@ -57,10 +57,10 @@ int main() {
     }
 
     return 0;
-}*/
+}
 
-///Topic-02
-//Using Upper Triangular
+Topic-02
+Using Upper Triangular+Identity matrix=>all processing showed
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -149,9 +149,9 @@ int main() {
     return 0;
 }
 
-///Topic-03
-//Identity Matrix(Lab Online Ques)
-/*#include <iostream>
+Topic-03
+Identity Matrix(Lab Online Ques)
+#include <iostream>
 #include <iomanip>
 #include <cmath>
 using namespace std;
@@ -210,4 +210,5 @@ int main() {
     cout << endl;
 
     return 0;
-}*/
+}
+
