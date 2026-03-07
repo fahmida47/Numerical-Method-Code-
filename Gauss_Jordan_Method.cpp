@@ -158,13 +158,15 @@ int main() {
 
 Topic-03
 Identity Matrix(Lab Online Ques)
-#include <iostream>
-#include <iomanip>
-#include <cmath>
+#include<bits/stdc++.h>
+#include<iomanip>
+#include<vector>
+#include<cmath>
 using namespace std;
 
-int main() {
-    int n;
+int main()
+{
+   int n;
     cout << "Enter the order of the matrix: ";
     cin >> n;
 
@@ -175,33 +177,42 @@ int main() {
         for(int j = 0; j <= n; j++)
             cin >> a[i][j];
 
-    // Gauss-Jordan with partial pivoting
-    for(int i = 0; i < n; i++) {
+
+    //Forward Elimination
+    for(int  k=0;k<n;k++)// n-1 hbe na
+    {
         // Partial Pivoting
-        int maxRow = i;
-        for(int k = i+1; k < n; k++)
-            if(fabs(a[k][i]) > fabs(a[maxRow][i]))
-                maxRow = k;
-        if(maxRow != i)
+        int maxRow=k;
+        for(int i=k+1;i<n;i++)
+        {
+            if(fabs(a[i][k])>fabs(a[maxRow][k]))
+            {
+                maxRow=i;
+            }
+        }
+        if(maxRow!=k)
+        {
             for(int j = 0; j <= n; j++)
-                swap(a[i][j], a[maxRow][j]);
+            swap(a[k][j],a[maxRow][j]); // 2D matrix swap hbe ekhane
+        }
 
+        //ei normalize part add hbe
         // Normalize pivot row
-        double pivotVal = a[i][i];
-        for(int k = 0; k <= n; k++)
-            a[i][k] /= pivotVal;
+        double pivotVal = a[k][k];
+        for(int j= 0; j <= n; j++)
+            a[k][j] /= pivotVal;
 
-        // Eliminate other rows
-        for(int j = 0; j < n; j++) {
-            if(j != i) {
-                double factor = a[j][i];
-                for(int k = 0; k <= n; k++)
-                    a[j][k] -= factor * a[i][k];
+         // Eliminate other rows
+         for(int  i= 0; i< n; i++) {
+            if(i!=k) {
+                double factor = a[i][k];
+                for(int  j=0; j<= n; j++)
+                    a[i][j] -= factor * a[k][j];
             }
         }
     }
 
-    cout<<"Output"<<endl;
+     cout<<"Output"<<endl;
 
     // Print final identity matrix
     for(int i = 0; i < n; i++) {
@@ -210,14 +221,18 @@ int main() {
         cout << endl;
     }
 
-    // Print solution in one line
-    cout << "Solution: ";
-    for(int i = 0; i < n; i++)
-        cout << fixed << setprecision(0) << a[i][n] << " ";
-    cout << endl;
+    // Print solution
+    cout<<"\nSolution: ";
+    for(int i=0;i<n;i++){
+        cout<<fixed<<setprecision(6)<<a[i][n]<<" "; // ei jaygay chnge hbe x[i] hbe na a[i][n] hbe
+    }
+
+    cout<<endl;
 
     return 0;
+
 }
+
 
 
 
