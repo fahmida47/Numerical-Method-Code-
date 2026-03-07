@@ -175,113 +175,96 @@ int main()
 Topic-03
 Add Error and  find Sum of other Coefficient
 #include <iostream>
+#include <vector>
 #include <cmath>
 #include <iomanip>
 using namespace std;
 
-bool checkDiagonalDominance(double a[20][21], int n)
-{
-    bool dominant = true;
-
-    for(int i=0;i<n;i++)
-    {
+// Function to check diagonal dominance
+void checkDiagonalDominance(const vector<vector<double>>& a) {
+    int n = a.size();
+    for (int i = 0; i < n; i++) {
         double sum = 0;
+        for (int j = 0; j < n; j++)
+            if (i != j) sum += abs(a[i][j]);
 
-        for(int j=0;j<n;j++)
-        {
-            if(i!=j)
-                sum += fabs(a[i][j]);
-        }
-
-        cout<<"(a["<<i<<"]["<<i<<"]) = "<<a[i][i]
-            <<", Sum of other coefficients = "<<sum;
-
-        if(fabs(a[i][i]) >= sum)
-            cout<<" -> dominant"<<endl;
+        if (abs(a[i][i]) >= sum)
+            cout << "(a[" << i << "][" << i << "]) = " << a[i][i]
+                 << ", Sum of other coefficients = " << sum
+                 << " -> dominant" << endl;
         else
-        {
-            cout<<" -> not dominant"<<endl;
-            dominant=false;
-        }
+            cout << "(a[" << i << "][" << i << "]) = " << a[i][i]
+                 << ", Sum of other coefficients = " << sum
+                 << " -> NOT dominant" << endl;
     }
-
-    return dominant;
 }
 
-int main()
-{
-    int n,i,j,iter=0;
-    double a[20][21],x[20]={0};
-    double temp,maxError,error,sum;
-    double allowed_error=0.00001;
+int main() {
+    int n;
+    cout << "Enter matrix order (n x n): ";
+    cin >> n;
 
-    cout<<"Enter order of matrix: ";
-    cin>>n;
+    vector<vector<double>> a(n, vector<double>(n));
+    vector<double> b(n), x(n);
+    double tol;
 
-    cout<<"Enter coefficients of matrix A:\n";
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<n;j++)
-        {
-            cin>>a[i][j];
-        }
-    }
+    cout << "Enter A matrix (" << n << "x" << n << "):\n";
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            cin >> a[i][j];
 
-    cout<<"Enter vector b:\n";
-    for(i=0;i<n;i++)
-    {
-        cin>>a[i][n];
-    }
+    cout << "Enter constants vector b:\n";
+    for (int i = 0; i < n; i++)
+        cin >> b[i];
 
-    cout<<fixed<<setprecision(6);
+    cout << "Enter allowed absolute error tolerance: ";
+    cin >> tol;
 
-    // Check diagonal dominance
-    checkDiagonalDominance(a,n);
+    // Initial guess x[i] = 0
+    for (int i = 0; i < n; i++)
+        x[i] = 0;
 
-    cout<<"\nApplying Gauss Seidel Method we get:\n";
+    cout << "\nChecking Diagonal Dominance:\n";
+    checkDiagonalDominance(a);
 
-    do
-    {
+    cout << "\nApplying Gauss Seidel Method we get:\n";
+
+    int iter = 0;
+    double maxError;
+
+    do {
         maxError = 0;
         iter++;
 
-        for(i=0;i<n;i++)
-        {
-            sum=0;
+        for (int i = 0; i < n; i++) {
 
-            for(j=0;j<n;j++)
-            {
-                if(j!=i)
-                    sum += a[i][j]*x[j];
-            }
+            double sum = 0;
 
-            temp = (a[i][n]-sum)/a[i][i];
+            for (int j = 0; j < n; j++)
+                if (i != j)
+                    sum += a[i][j] * x[j];
 
-            error = fabs(temp-x[i]);
+            double temp = (b[i] - sum) / a[i][i];
 
-            if(error>maxError)
-                maxError=error;
+            double err = fabs(temp - x[i]);
 
-            x[i]=temp;
+            if (err > maxError)
+                maxError = err;
+
+            x[i] = temp;   // immediate update (Gauss-Seidel)
         }
 
-        cout<<"Iter = "<<iter<<" ";
+        cout << "Iter = " << iter;
+        for (int i = 0; i < n; i++)
+            cout << " x[" << i << "] = " << fixed << setprecision(6) << x[i];
 
-        for(i=0;i<n;i++)
-        {
-            cout<<"x["<<i<<"] = "<<x[i]<<" ";
-        }
+        cout << " Maximum Error = " << fixed << setprecision(6) << maxError << endl;
 
-        cout<<"Maximum Error = "<<maxError<<endl;
+    } while (maxError > tol);
 
-    }while(maxError > allowed_error);
-
-    cout<<"\nFinal Solution:\n";
-
-    for(i=0;i<n;i++)
-    {
-        cout<<"x["<<i<<"] = "<<x[i]<<endl;
-    }
+    cout << "\nFinal Solution:\n";
+    for (int i = 0; i < n; i++)
+        cout << "x[" << i << "] = " << fixed << setprecision(6) << x[i] << endl;
 
     return 0;
 }
