@@ -204,7 +204,7 @@ int main()
 
          // Eliminate other rows
          for(int  i= 0; i< n; i++) {
-            if(i!=k) {
+            if(i!=k) {  //ei part ta add hbe
                 double factor = a[i][k];
                 for(int  j=0; j<= n; j++)
                     a[i][j] -= factor * a[k][j];
@@ -232,6 +232,7 @@ int main()
     return 0;
 
 }
+
 
 
 
