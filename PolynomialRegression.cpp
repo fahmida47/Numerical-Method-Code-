@@ -23,7 +23,7 @@ int main() {
     int m = degree + 1;
 
     // Array for sum of powers of x
-    double X[2 * degree + 1];
+    double X[2 * m];
 
     for (int i = 0; i <= 2 * degree; i++) {
         X[i] = 0;
