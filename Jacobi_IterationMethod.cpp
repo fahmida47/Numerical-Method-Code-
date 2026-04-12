@@ -1,8 +1,8 @@
-///Topic-01
-// Basic Code
-/*#include <iostream>
+Topic-01
+Basic Code
+#include <iostream>
 #include <cmath>
-#include <iomanip>  // For setprecision
+#include <iomanip> 
 
 using namespace std;
 
@@ -69,10 +69,10 @@ int main() {
     }
 
     return 0;
-}*/
-///Topic-02
-//Online Question=> 12x+2y+z=30, 3x+15y+4z=40, 2x+3y+20z=50
-/*#include <iostream>
+}
+Topic-02
+Online Question=> 12x+2y+z=30, 3x+15y+4z=40, 2x+3y+20z=50
+#include <iostream>
 #include <iomanip>
 using namespace std;
 
@@ -131,10 +131,10 @@ int main()
     }
 
     return 0;
-}*/
+}
 
-///Topic-03
-//Online Question=>
+Topic-03
+Online Question=>
 #include <iostream>
 #include <vector>
 #include <cmath>
